@@ -5,7 +5,7 @@ node_js:
 sudo: false
 
 script:
-  - scripts/ci.sh
+  - bash scripts/ci.sh
 
 deploy:
   fqdn: dot2array.taxio.me
