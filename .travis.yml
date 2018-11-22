@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - "11.1.0"
+
+cache: yarn
+
+sudo: false
+
+install:
+  - cd webapp
+  - yarn
+
+script:
+  - yarn test
+
+before_deploy:
+  - yarn build
+
+deploy:
+  fqdn: dot2array.taxio.me
+  provider: pages
+  local-dir: ./webapp/build
+  skip_cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
+
