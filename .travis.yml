@@ -2,6 +2,8 @@ language: node_js
 node_js:
   - "11.1.0"
 
+cache: yarn
+
 sudo: false
 
 install:
@@ -10,6 +12,8 @@ install:
 
 script:
   - yarn test
+
+before_deploy:
   - yarn build
 
 deploy:
