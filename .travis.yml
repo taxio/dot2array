@@ -4,8 +4,13 @@ node_js:
 
 sudo: false
 
+install:
+  - cd webapp
+  - yarn
+
 script:
-  - bash scripts/ci.sh
+  - yarn test
+  - yarn build
 
 deploy:
   fqdn: dot2array.taxio.me
